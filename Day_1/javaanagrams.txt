@@ -1,0 +1,65 @@
+    static boolean isAnagram(String a, String b) {
+        int i=0,j=0,k=0; int[] counta=new int[100];
+        int[] countb=new int[100]; int flag=1; char c;
+        for(i=0;i<a.length();i++)
+        {
+            counta[i]=0;
+            countb[i]=0;
+        }
+        for(c='a';c<='z';c++)
+        {
+            for(i=0;i<a.length();i++)
+            {
+                if(c==a.charAt(i))
+                {
+                    counta[k]++;
+                }
+            }
+            k++;
+        }
+        k=0;
+        for(c='A';c<='Z';c++)
+        {
+            for(i=0;i<a.length();i++)
+            {
+                if(c==a.charAt(i))
+                {
+                    counta[k]++;
+                }
+            }
+            k++;
+        }
+         k=0;
+        for(c='A';c<='Z';c++)
+        {
+            for(i=0;i<b.length();i++)
+            {
+                if(c==b.charAt(i))
+                {
+                    counta[k]++;
+                }
+            }
+            k++;
+        }
+               k=0;
+         for(c='a';c<='z';c++)
+        {
+            for(i=0;i<b.length();i++)
+            {
+                if(c==b.charAt(i))
+                {
+                    countb[k]++;
+                }
+            }
+             k++;
+        }    
+       
+           for(i=0;i<100;i++)
+        {
+           if( counta[i]!=countb[i])
+           {
+              return false;
+           }
+        }                         
+         return true;
+    }
