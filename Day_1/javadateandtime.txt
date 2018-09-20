@@ -1,0 +1,26 @@
+ import java.util.Scanner;
+import java.text.DateFormatSymbols;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+class ABC
+ {
+ public static String getDay(String d, String m, String y)
+    {
+                int intyear = Integer.parseInt(y);
+                int intDay = Integer.parseInt(d);
+                int intmonth = Integer.parseInt(m);
+        
+                String dateString = String.format("%d-%d-%d", intyear, intmonth, intDay);
+                Date date = null;
+                try {
+                     date = new SimpleDateFormat("yyyy-M-d").parse(dateString);
+                }
+                catch(ParseException ref){
+                    ref.printStackTrace();
+                }  
+                String dayOfWeek = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date);
+                
+                return dayOfWeek.toUpperCase();
+  }
