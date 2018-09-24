@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int n;
+        n=scan.nextInt();
+        List<Integer> l = new ArrayList<>();
+        
+        for(int i=0;i<n;i++){
+            l.add(scan.nextInt());
+        }
+         int q;
+        q=scan.nextInt();
+        String todo;
+        for(int i=0;i<q;i++){
+            todo = scan.next();
+            if(todo.equals("Insert")){
+                int position = scan.nextInt();
+                int x = scan.nextInt();
+                l.add(position,x);
+              
+            }else if(todo.equals("Delete")){
+                int position = scan.nextInt();
+                l.remove(position);
+            }
+        }
+        for(int f:l){
+                System.out.print(f+" ");
+        }
+    }
+}
