@@ -1,0 +1,12 @@
+	public static int height(Node root) {
+        Node temp=root;
+        if (temp==null)  
+         return -1; 
+        else { 
+       int leftDepth = height(temp.left); 
+       int rightDepth = height(temp.right); 
+       if (leftDepth > rightDepth)  
+           return(leftDepth+1); 
+       else return(rightDepth+1); 
+         } 
+    } 
