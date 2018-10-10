@@ -1,0 +1,13 @@
+	public static void topView(Node root) {
+      Node temp=root;
+        int count=0;
+        while(temp!=null){     
+            System.out.print(temp.data+" ");  count++;
+            temp=temp.left;
+        }
+         temp=root.right;
+        while(temp!=null){      
+            System.out.print(temp.data+" ");
+             temp=temp.right;
+        }
+     }
