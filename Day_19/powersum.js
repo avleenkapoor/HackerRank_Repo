@@ -1,4 +1,4 @@
-v'use strict';
+'use strict';
 
 const fs = require('fs');
 
@@ -13,9 +13,7 @@ process.stdin.on('data', inputStdin => {
 });
 
 process.stdin.on('end', _ => {
-    inputString = inputString.replace(/\s*$/, '')
-        .split('\n')
-        .map(str => str.replace(/\s*$/, ''));
+    inputString = inputString.trim().split('\n').map(str => str.trim());
 
     main();
 });
@@ -24,29 +22,27 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-// Complete the powerSum function below.
-function powerSum(X, N, num) {
-  const pow = Math.pow(num, N)
-  console.log(pow)
-  if(pow < X){
-    return powerSum(X,N, num+1) + powerSum(X-pow,N, num+1)
-  }else if(pow == X){
-    return 1
-  }
-  return 0
+/*
+ * Complete the powersGame function below.
+ */
+function powersGame(n) {
+    if (n%8 == 0) return 'Second';
+    return 'First';
 
 }
 
 function main() {
     const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
 
-    const X = parseInt(readLine(), 10);
+    const t = parseInt(readLine(), 10);
 
-    const N = parseInt(readLine(), 10);
+    for (let tItr = 0; tItr < t; tItr++) {
+        const n = parseInt(readLine(), 10);
 
-    let result = powerSum(X, N, 1);
+        let result = powersGame(n);
 
-    ws.write(result + "\n");
+        ws.write(result + "\n");
+    }
 
     ws.end();
 }
